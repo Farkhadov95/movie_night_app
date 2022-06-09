@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/allMoviesFragment">
+
+    <fragment
+        android:id="@+id/allMoviesFragment"
+        android:name="com.example.movie_night.MovieListFragment"
+        android:label="fragment_all_movies"
+        tools:layout="@layout/fragment_all_movies" >
+        <action
+            android:id="@+id/action_allMoviesFragment_to_addNewMovie"
+            app:destination="@id/addNewMovie" />
+        <action
+            android:id="@+id/action_allMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewMovie"
+        android:name="com.example.movie_night.AddMovieFragment"
+        android:label="fragment_add_new_movie"
+        tools:layout="@layout/fragment_add_movie" >
+        <action
+            android:id="@+id/action_addNewMovie_to_allMoviesFragment"
+            app:destination="@id/allMoviesFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="movie_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.example.movie_night.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
+        <argument
+            android:name="movie_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_addNewMovie"
+            app:destination="@id/addNewMovie" />
+    </fragment>
+</navigation>

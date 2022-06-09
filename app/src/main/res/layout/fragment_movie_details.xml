@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin"
+    tools:context=".MovieDetailsFragment">
+
+    <TextView
+        android:id="@+id/movie_name"
+        style="@style/Widget.Inventory.TextView"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Terminator 2" />
+
+    <TextView
+        android:id="@+id/movie_year"
+        style="@style/Widget.Inventory.TextView"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_name"
+        tools:text="1995" />
+
+    <TextView
+        android:id="@+id/item_count_label"
+        style="@style/Widget.Inventory.TextView"
+        android:layout_width="wrap_content"
+        android:text="@string/current_rating"
+        app:layout_constraintBaseline_toBaselineOf="@+id/movie_rating"
+        app:layout_constraintEnd_toStartOf="@+id/movie_rating"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/movie_rating"
+        style="@style/Widget.Inventory.TextView"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/margin_between_elements"
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_count_label"
+        app:layout_constraintTop_toBottomOf="@+id/movie_year"
+        tools:text="5" />
+
+    <Button
+        android:id="@+id/decrease_rating"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:backgroundTint="@color/purple_500"
+        android:text="@string/decrease"
+        app:layout_constraintBottom_toTopOf="@+id/delete_movie"
+        app:layout_constraintEnd_toStartOf="@id/increase_rating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_rating" />
+
+    <Button
+        android:id="@+id/increase_rating"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:backgroundTint="@color/green"
+        android:text="@string/increase"
+        app:layout_constraintBottom_toTopOf="@+id/delete_movie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/decrease_rating"
+        app:layout_constraintTop_toBottomOf="@+id/movie_rating"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/delete_movie"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/decrease_rating" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginBottom="@dimen/margin_between_elements"
+        android:contentDescription="@string/edit_item"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
