@@ -59,14 +59,16 @@ class MovieViewModel(private val movieDao: MovieDao) : ViewModel() {
     }
 
     fun increaseRating(movie: Movie) {
-        val newRating = movie.copy(
-            movieRating = (((movie.movieRating + 0.1) * 100.0).roundToInt() /100.0)
-        )
-        updateMovie(newRating)
+        if (movie.movieRating < 10) {
+            val newRating = movie.copy(
+                movieRating = (((movie.movieRating + 0.1) * 100.0).roundToInt() /100.0)
+            )
+            updateMovie(newRating)
+        }
     }
 
     fun isRatingAvailable(movie: Movie): Boolean {
-        return (movie.movieRating > 0)
+        return (movie.movieRating > 0 || movie.movieRating < 10)
     }
 
     fun deleteMovie(movie: Movie) {

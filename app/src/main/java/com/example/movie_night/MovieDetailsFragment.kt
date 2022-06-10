@@ -34,6 +34,7 @@ class MovieDetailsFragment : Fragment() {
             movieRating.text = movie.movieRating.toString()
 
             decreaseRating.isEnabled = viewModel.isRatingAvailable(movie)
+            increaseRating.isEnabled = viewModel.isRatingAvailable(movie)
 
             decreaseRating.setOnClickListener {
                 viewModel.decreaseRating(movie)
